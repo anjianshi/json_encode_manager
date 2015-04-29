@@ -30,5 +30,5 @@ The other one was `generalized`, called `common_encoder`.
 
 `specialized` encoder has higher priority than `common_encoder`.
 
-System has already define some encoders, in `_predefined_json_encoders` and `_predefined_common_json_encoders`
+System has already define some encoders, in `_predefined_json_encoders` and `_predefined_common_json_encoders`.
 These encoders will be registered automatically, and has lowest priority of it's kind.
