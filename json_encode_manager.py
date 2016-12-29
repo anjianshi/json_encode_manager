@@ -5,7 +5,7 @@ import time
 from decimal import Decimal
 
 __all__ = ["JSONEncodeManager", "CantEncodeObjException"]
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 
 def _transform_iterable_obj(obj):
@@ -55,7 +55,11 @@ class JSONEncodeManager(object):
         self.encoders = []
         self.common_encoders = []
 
-        self.flask_json_encoder = json.JSONEncoder()
+    def clone(self):
+        new_manager = JSONEncodeManager()
+        new_manager.encoders = [item for item in self.encoders]
+        new_manager.common_encoders = [item for item in self.common_encoders]
+        return new_manager
 
     def register(self, encoder, target_class=None):
         if target_class:
