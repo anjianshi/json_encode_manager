@@ -16,12 +16,12 @@ class JSONEncoderTestCase(unittest.TestCase):
         self.encode_manager = JSONEncodeManager()
 
     def verify(self, data, expect_result=None, loads_before_compare=False):
-        """
+        '''
         把 data 转换成 JSON 字符串，然后和 expect_result 对比。
 
         若 loads_before_compare 为 True，则会把 JSON 字符串解析回 Python 对象后，再进行对比。
         对于 dict 类型的 data，必须这样进行对比。因为最终生成的字符串中，key 的出现顺序是随机的，同样的 dict 可能生成出不同的字符串。
-        """
+        '''
         result = json.dumps(data, default=self.encode_manager)
         if loads_before_compare:
             result = json.loads(result)
@@ -97,8 +97,8 @@ class JSONEncoderTestCase(unittest.TestCase):
         self.encode_manager.register(custom_common_encoder)
 
         samples = [
-            (CustomDataType(Decimal(10.5), 1), {"a": 10.5, "b": 1}),
-            (CustomDataType2(Decimal(20.0), 'a'), {"c": 20.0, "d": "a"}),
+            (CustomDataType(Decimal(10.5), 1), {'a': 10.5, 'b': 1}),
+            (CustomDataType2(Decimal(20.0), 'a'), {'c': 20.0, 'd': 'a'}),
         ]
 
         for data, result in samples:

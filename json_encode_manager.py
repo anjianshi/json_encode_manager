@@ -4,8 +4,8 @@ from datetime import datetime
 import time
 from decimal import Decimal
 
-__all__ = ["JSONEncodeManager", "CantEncodeObjException"]
-__version__ = "0.0.2"
+__all__ = ['JSONEncodeManager', 'CantEncodeObjException']
+__version__ = '0.0.2'
 
 
 def _transform_iterable_obj(obj):
@@ -25,7 +25,7 @@ _predefined_common_json_encoders = [
 
 
 class JSONEncodeManager(object):
-    """Python's default json encoder was difficult to extend.
+    '''Python's default json encoder was difficult to extend.
     Use this, you can simply register custom encoder, to handle the data types that default json encoder can't encode.
 
     Usage：
@@ -50,7 +50,7 @@ class JSONEncodeManager(object):
 
     System has already define some encoders, in `_predefined_json_encoders` and `_predefined_common_json_encoders`
     These encoders will be registered automatically, and has lowest priority of it's kind.
-    """
+    '''
     def __init__(self):
         self.encoders = []
         self.common_encoders = []
